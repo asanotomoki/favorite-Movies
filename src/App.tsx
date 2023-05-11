@@ -1,7 +1,8 @@
+import { Router } from "./Router/Router";
+//import axios from "axios";
 function App() {
   return (
-    <div className="App">
-    </div>
+      <Router />
   );
 }
 
