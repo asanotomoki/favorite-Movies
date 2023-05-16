@@ -1,26 +1,49 @@
 import React from "react";
 import styled from "styled-components";
 import { PrimaryText } from "../shared/Text/Text/PrimaryText";
-import { PraimaryTitle } from "../shared/Text/Title/PrimaryTitle";
+import { PrimaryTitle } from "../shared/Text/Title/PrimaryTitle";
 import { MovieImage } from "./movieImage";
 
+type Props = {
+	id: number;
+	title: string;
+	posterPath: string;
+	releaseDate: string;
+}
 
-export const MovieCard: React.FC = () => {
-	const imgUrl = 'https://image.tmdb.org/t/p/w500/6KErczPBROQty7QoIsaa6wJYXZi.jpg'
+export const MovieCard: React.FC<Props> = (props) => {
+	const { title, releaseDate, posterPath } = props;
+	const imgUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
 	return (
 		<SContainer>
-			<MovieImage imgUrl={imgUrl}/>
-			<PraimaryTitle>Tom&Jerry</PraimaryTitle>
-			<PrimaryText>2002年</PrimaryText>
+			<SImgContainer>
+				<MovieImage imgUrl={imgUrl} />
+			</SImgContainer>
+			<STextContainer>
+				<PrimaryTitle>{title}</PrimaryTitle>
+				<PrimaryText>{releaseDate}</PrimaryText>
+			</STextContainer>
 		</SContainer>
 	)
 }
 const SContainer = styled.div`
 	color: #000;
 	top: 0;
-	width: 30%;
-	max-width: 200px;
+	width: 100%;
 	height: 100%;
 	z-index: 100;
-	margin: 8px 4px;
+`;
+
+const SImgContainer = styled.div`
+	width: 100%;
+	height: 70%;
+	max-width: 300px;
+	border-radius: 10px;
+	overflow: hidden;
+`;
+
+const STextContainer = styled.div`
+	width: 100%;
+	height: 30%;
+	padding: 16px;
 `;

@@ -3,13 +3,14 @@ import style from "styled-components";
 
 type Props = {
 	placeholder: string;
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const PrimaryInput: React.FC<Props> = (props) => {
-	const { placeholder} = props;
+	const { placeholder, onChange } = props;
 
 	return (
-		<SInput type="text" placeholder={placeholder} />
+		<SInput type="text" placeholder={placeholder} onChange={onChange} />
 	)
 }
 

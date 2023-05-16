@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export const Header: React.FC = () => {
 	return (
 		<SHeader>
-			<h1>Movie App</h1>
+			<Link to="/">
+				<h1>Movie App</h1>
+			</Link>
+
 		</SHeader>
 	)
 }

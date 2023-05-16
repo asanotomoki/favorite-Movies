@@ -1,8 +1,13 @@
 import { Router } from "./Router/Router";
-//import axios from "axios";
+import { MovieListProvider } from "./provider/MovieList";
+import { MovieProvider } from "./provider/DetailMovie";
 function App() {
   return (
-      <Router />
+    <MovieListProvider>
+      <MovieProvider>
+        <Router />
+      </MovieProvider>
+    </MovieListProvider>
   );
 }
 

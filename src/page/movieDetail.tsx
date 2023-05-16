@@ -1,14 +1,13 @@
 import React from "react";
 import { BasicTemplate } from "../template/BasicTemplate";
-import { MovieCardList } from "../components/movieCard/movieCardList/movieCardList";
-
+import { Detail } from "../components/detail";
+import { useMovieDetail } from "../hook/useMovieDetail";
 export const MovieDetail: React.FC = () => {
+	const { Movie } = useMovieDetail();
+	if (!Movie) return (<div>None</div>)
 	return (
-		<>
-			<BasicTemplate>
-				<h1>Movie Detail</h1>
-				<MovieCardList/>
-			</BasicTemplate>
-		</>
+		<BasicTemplate>
+			<Detail movie={Movie}/>
+		</BasicTemplate>
 	)
 }
