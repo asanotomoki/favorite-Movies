@@ -7,6 +7,9 @@ export const Header: React.FC = () => {
 			<Link to="/">
 				<h1>Movie App</h1>
 			</Link>
+			<Link to="/favorite">
+				<p>お気に入り</p>
+			</Link>
 
 		</SHeader>
 	)

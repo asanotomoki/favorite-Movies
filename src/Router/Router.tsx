@@ -4,6 +4,7 @@ import { Home } from "../page/Home";
 import { MovieDetail } from "../page/movieDetail";
 import { Page404 } from "../page/page404";
 import { Search } from "../page/search";
+import { Favorite } from "../page/Favorite";
 
 export const Router: React.FC = () => {
 	return (
@@ -13,6 +14,7 @@ export const Router: React.FC = () => {
 					<Route path="/" element={<Home />} />
 					<Route path="/search/*" element={<Search />} />
 					<Route path="/movie/*" element={<MovieDetail />} />
+					<Route path="/favorite" element={<Favorite />} />
 					<Route path="*" element={<Page404 />} />
 				</Routes>
 			</BrowserRouter>

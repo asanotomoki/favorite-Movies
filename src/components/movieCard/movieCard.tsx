@@ -23,15 +23,15 @@ export const MovieCard: React.FC<Props> = (props) => {
 				<PrimaryTitle>{title}</PrimaryTitle>
 				<PrimaryText>{releaseDate}</PrimaryText>
 			</STextContainer>
+			
 		</SContainer>
 	)
 }
 const SContainer = styled.div`
-	color: #000;
-	top: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 100;
+	padding: 16px;
+
 `;
 
 const SImgContainer = styled.div`
@@ -44,6 +44,5 @@ const SImgContainer = styled.div`
 
 const STextContainer = styled.div`
 	width: 100%;
-	height: 30%;
-	padding: 16px;
+	height: 20%;
 `;
