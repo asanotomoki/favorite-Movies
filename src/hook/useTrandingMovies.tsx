@@ -6,7 +6,9 @@ import { useMovieList } from "./useMovieList";
 export const useTranding = () => {
 	const { setMovieList } = useMovieList();
 		const getTrandingMovies = useCallback(() => {
-		axios.get<MovieResponse>('https://api.themoviedb.org/3/trending/movie/week?api_key=d7a89961d5cb2a7286ee1b8b7243ddd9&language=ja-JPN')
+		const api_key = process.env.REACT_APP_API_KEY
+		const url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${api_key}&language=ja-JPN&adult=false`
+		axios.get<MovieResponse>(url)
 			.then((res) => {
 				setMovieList(res.data.results);
 			}).catch((err) => {
