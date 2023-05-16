@@ -5,9 +5,12 @@ import { BasicTemplate } from "../template/BasicTemplate";
 import { MovieCard } from "../components/movieCard/movieCard";
 import { useFavoriteMovieList } from "../hook/useFavoriteMovieList";
 import { useShowMovieDetail } from "../hook/useShowMovieDetail";
+import { UsedButton } from "../components/shared/Button/UsedButton";
+import { useRemoveFavorite } from "../hook/useRemoveFavorite";
 export const Favorite: React.FC = () => {
 	const { FavoriteMovieList } = useFavoriteMovieList();
 	const { ShowMovie } = useShowMovieDetail();
+	const { RemoveFavorite } = useRemoveFavorite();
 	return (
 		<>
 			<BasicTemplate>
@@ -15,8 +18,8 @@ export const Favorite: React.FC = () => {
 				<SContainer>
 					{FavoriteMovieList ? FavoriteMovieList.map((movie) => {
 						return (
-							<SContainerButton onClick={() => ShowMovie(movie)} key={movie.id}>
-								<SCardContainer>
+							<SContainerButton key={movie.id}>
+								<SCardContainer  onClick={() => ShowMovie(movie)}>
 									<MovieCard
 										id={movie.id}
 										title={movie.title}
@@ -24,11 +27,7 @@ export const Favorite: React.FC = () => {
 										releaseDate={movie.release_date}
 									/>
 								</SCardContainer>
-								{/*{
-							!favorite[index] ? 
-							<PrimaryButton onClick={() => onClickFavorite(movie, index)}>お気に入り</PrimaryButton>	:
-							<UsedButton onClick={() => onClickFavorite(movie, index)}>削除</UsedButton>
-						}*/}
+								<UsedButton onClick={() => RemoveFavorite(movie)}>削除</UsedButton>
 							</SContainerButton>
 						)
 					}) : null

@@ -1,17 +1,17 @@
-import React from "react";
+import React, {memo} from "react";
 import styled from "styled-components";
 
 type Props = {
 	imgUrl: string;
 }
 
-export const MovieImage: React.FC<Props> = ({ imgUrl }) => {
+export const MovieImage: React.FC<Props> = memo(({ imgUrl }) => {
 	return (
 		<SContainer>
 			<SImg src={imgUrl} alt="" />
 		</SContainer>
 	)
-}
+});
 
 const SContainer = styled.div`
 	width: 100%;

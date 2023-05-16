@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { PrimaryText } from "../shared/Text/Text/PrimaryText";
 import { PrimaryTitle } from "../shared/Text/Title/PrimaryTitle";
@@ -11,7 +11,7 @@ type Props = {
 	releaseDate: string;
 }
 
-export const MovieCard: React.FC<Props> = (props) => {
+export const MovieCard: React.FC<Props> = memo((props) => {
 	const { title, releaseDate, posterPath } = props;
 	const imgUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
 	return (
@@ -22,11 +22,10 @@ export const MovieCard: React.FC<Props> = (props) => {
 			<STextContainer>
 				<PrimaryTitle>{title}</PrimaryTitle>
 				<PrimaryText>{releaseDate}</PrimaryText>
-			</STextContainer>
-			
+			</STextContainer>		
 		</SContainer>
 	)
-}
+});
 const SContainer = styled.div`
 	width: 100%;
 	height: 100%;

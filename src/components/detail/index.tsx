@@ -6,6 +6,7 @@ import { DetailText } from "./detailText";
 import { PrimaryButton } from "../shared/Button/PrimaryButton";
 import { UsedButton } from "../shared/Button/UsedButton";
 import { useAddFavorite } from "../../hook/useAddFavorite";
+import { useRemoveFavorite } from "../../hook/useRemoveFavorite";
 type Props = {
 	movie: MovieType;
 }
@@ -13,9 +14,14 @@ type Props = {
 export const Detail: React.FC<Props> = (props) => {
 	const { movie } = props;
 	const { addFavorite } = useAddFavorite();
+	const { RemoveFavorite } = useRemoveFavorite();
 	const [favorite, setFavorite] = useState(false);
 	const onClickFavorite = (movie: MovieType) => {
 		addFavorite(movie);
+		setFavorite(!favorite);
+	}
+	const onClickRemoveFavorite = (movie: MovieType) => {
+		RemoveFavorite(movie);
 		setFavorite(!favorite);
 	}
 	return (
@@ -25,7 +31,7 @@ export const Detail: React.FC<Props> = (props) => {
 			{
 				!favorite ?
 					<PrimaryButton onClick={() => onClickFavorite(movie)}>お気に入り</PrimaryButton> :
-					<UsedButton onClick={() => onClickFavorite(movie)}>削除</UsedButton>
+					<UsedButton onClick={() => onClickRemoveFavorite(movie)}>削除</UsedButton>
 			}
 		</>
 	)

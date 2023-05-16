@@ -16,7 +16,6 @@ type Props = {
 
 export const FavoriteMovieListProvider: React.FC<Props> = ({ children }) => {
 	const [FavoriteMovieList , setFavoriteMovieList] = React.useState<MovieType[] | null>(null);
-	console.log(FavoriteMovieList);
 	return (
 		<FavoriteMovieListContext.Provider value={{ FavoriteMovieList , setFavoriteMovieList }}>
 			{children}

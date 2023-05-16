@@ -7,8 +7,7 @@ export const useAddFavorite = () => {
 		if (!FavoriteMovieList) {
 			setFavoriteMovieList([movie]);
 		} else if (FavoriteMovieList.some((favoriteMovie) => favoriteMovie.id === movie.id)) {
-			const newFavoriteMovieList = FavoriteMovieList.filter((favoriteMovie) => favoriteMovie.id !== movie.id);
-			setFavoriteMovieList(newFavoriteMovieList);
+			return ;
 		} else {
 			const newFavoriteMovieList = [...FavoriteMovieList, movie];
 			setFavoriteMovieList(newFavoriteMovieList);
